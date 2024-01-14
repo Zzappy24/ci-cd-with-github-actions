@@ -12,7 +12,11 @@ from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 
 class TestSeleniumintegrationtest():
   def setup_method(self, method):
-    self.driver = webdriver.Chrome()
+    chrome_options = webdriver.ChromeOptions()
+    chrome_options.add_argument("--no-sandbox")
+    chrome_options.add_argument("--headless")
+    self.driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()),options=chrome_options)
+    #self.driver = webdriver.Chrome()
     self.vars = {}
   
   def teardown_method(self, method):

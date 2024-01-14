@@ -19,7 +19,7 @@ class TestSeleniumintegrationtest():
     chrome_options.add_argument("--headless")
     self.driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()),options=chrome_options)
     #self.driver = webdriver.Chrome()
-    driver.implicitly_wait(10)
+    self.driver.implicitly_wait(10)
     self.vars = {}
   
   def teardown_method(self, method):
